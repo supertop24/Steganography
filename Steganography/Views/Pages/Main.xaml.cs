@@ -12,15 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Steganography.Data;
+using Steganography.ViewModels.Pages;
 
-namespace Steganography.Views
+namespace Steganography.Views.Pages
 {
     /// <summary>
-    /// Interaction logic for Page1.xaml
+    /// Interaction logic for Main.xaml
     /// </summary>
-    public partial class Page1 : Page
+    public partial class Main : Page
     {
-        public Page1()
+        public Main(User user, string type)
         {
             InitializeComponent();
         }

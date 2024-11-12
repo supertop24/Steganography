@@ -1,0 +1,161 @@
+﻿<Page x:Class="Steganography.Views.Pages.Login"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Steganography.Views.Pages"
+      xmlns:vm="clr-namespace:Steganography.ViewModels.Pages" d:DataContext="{d:DesignInstance Type=vm:LoginVM}"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Login">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="Header" Grid.Row="0" Background="White" >
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" >
+                <Button VerticalAlignment="Center">
+                    logo
+                </Button>
+            </StackPanel>
+            <StackPanel>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right"  >
+                <Button x:Name="profile" Click="Button_Click"  VerticalAlignment="Center">
+                    profile
+                </Button>
+            </StackPanel>
+        </Grid>
+        <Grid x:Name="Main" Grid.Row="1" Background="Gray">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Background="AntiqueWhite">
+                <TextBlock>
+                    IMAGE
+                </TextBlock>
+            </Grid>
+            <Grid Grid.Row="1">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button Click="Button_Click_5" Margin="10 10 10 10">Encryption Image</Button>
+                    <Button Click="Button_Click_6" Margin="10 10 10 10">Decryption Image</Button>
+                </StackPanel>
+            </Grid>
+        </Grid>
+        <Grid x:Name="LoginForm" Grid.Row="1" Width="300" Height="300" Background="White" Visibility="Collapsed">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="53*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2.5*"/>
+                <RowDefinition Height="2.5*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Orientation="Horizontal" Grid.ColumnSpan="2" Margin="0,0,0,0.2" >
+                <TextBlock>
+                    Image
+                </TextBlock>
+            </StackPanel>
+            <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Column="1" Margin="0,12,0,12.2">
+                <Button Click="Button_Click_1">
+                    Close
+                </Button>
+            </StackPanel>
+            <StackPanel Grid.ColumnSpan="2" Margin="0,43,0,0.4" Grid.RowSpan="2">
+                <TextBlock>Image</TextBlock>
+            </StackPanel>
+            <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="0,106.8,0,42" Grid.RowSpan="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label>Username :</Label>
+                    <TextBox x:Name="usernameLogin" Width="150" Height="25"/>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label>Password :</Label>
+                    <PasswordBox x:Name="passLogin" Width="150" Height="25"/>
+                </StackPanel>
+            </Grid>
+            <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.ColumnSpan="2" Margin="0,0.4,0,0">
+                <Button Click="Button_Click_2">sign up</Button>
+                <Button Click="Button_Click_3">Login</Button>
+            </StackPanel>
+        </Grid>
+        <Grid x:Name="SignupForm" Grid.Row="1" Width="300" Height="300" Background="White" Visibility="Collapsed">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="53*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2.5*"/>
+                <RowDefinition Height="2.5*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Orientation="Horizontal" Grid.ColumnSpan="2" Margin="0,0,0,0.2" >
+                <TextBlock>
+                    Image
+                </TextBlock>
+            </StackPanel>
+            <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Column="1" Margin="0,12,0,12.2">
+                <Button Click="Button_Click_1">
+                    Close
+                </Button>
+            </StackPanel>
+            <StackPanel Grid.ColumnSpan="2" Margin="0,43,0,0.4" Grid.RowSpan="2">
+                <TextBlock>Image</TextBlock>
+            </StackPanel>
+            <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="0,106.8,0,42" Grid.RowSpan="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label>Username :</Label>
+                    <TextBox x:Name="usernameSignUP" Width="150" Height="25"/>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label>Password :</Label>
+                    <PasswordBox x:Name="passSignUp" Width="150" Height="25"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label>Re-Password :</Label>
+                    <PasswordBox x:Name="repassSignUp" Width="150" Height="25"/>
+                </StackPanel>
+            </Grid>
+            <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.ColumnSpan="2" Margin="0,0.4,0,0">
+                <Button Click="Button_Click_4">sign up</Button>
+            </StackPanel>
+        </Grid>
+        <Grid x:Name="Footer" Grid.Row="2" Background="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <TextBlock>Contact Us</TextBlock>
+            </Grid>
+            <Grid Grid.Column="1">
+                <TextBlock>Terms Of Service</TextBlock>
+            </Grid>
+            <Grid Grid.Column="2">
+                <TextBlock>Privacy Policy</TextBlock>
+            </Grid>
+            <Grid Grid.Column="3">
+                <TextBlock>Git</TextBlock>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>
