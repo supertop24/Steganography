@@ -46,95 +46,140 @@
                 </StackPanel>
             </Grid>
         </Grid>
-        <Grid x:Name="LoginForm" Grid.Row="1" Width="300" Height="300" Background="White" Visibility="Collapsed">
+        
+<!--    LogIn Section    -->
+        <Grid x:Name="LoginForm" Grid.Row="1" Width="300" Height="300" Background="White" Visibility="Visible">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="7*"/>
                 <ColumnDefinition Width="53*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="2.5*"/>
-                <RowDefinition Height="2.5*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <StackPanel Grid.Row="0" Orientation="Horizontal" Grid.ColumnSpan="2" Margin="0,0,0,0.2" >
-                <TextBlock>
-                    Image
-                </TextBlock>
+            <!-- Header Section -->
+            <StackPanel Grid.Row="0" Orientation="Horizontal" Grid.ColumnSpan="2" Margin="0,0,0,15" >
+                <Image Height="28" Source="/Source/logo.png" Stretch="Fill" Width="120"/>
             </StackPanel>
-            <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Column="1" Margin="0,12,0,12.2">
-                <Button Click="Button_Click_1">
-                    Close
+            <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Column="1" Margin="0,0,5,20">
+                <Button Click="Button_Click_1" Width="18" Height="18" BorderThickness="0" Background="Transparent">
+                    <Button.Content>
+                        <Image Height="15" Source="/Source/closebt.png" Stretch="Fill" Width="16"/>
+                    </Button.Content>
                 </Button>
             </StackPanel>
-            <StackPanel Grid.ColumnSpan="2" Margin="0,43,0,0.4" Grid.RowSpan="2">
-                <TextBlock>Image</TextBlock>
+            <!-- Background Image Section -->
+            <StackPanel Grid.ColumnSpan="2" Margin="0,32,0,0.4" Grid.RowSpan="2">
+                <Image Source="/Source/background.png" Height="130" Stretch="Fill"/>
             </StackPanel>
+            <!-- Login Detail Section -->
             <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="0,106.8,0,42" Grid.RowSpan="3">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Label>Username :</Label>
-                    <TextBox x:Name="usernameLogin" Width="150" Height="25"/>
+                    <Label Content="Username :" FontFamily="Courier New" FontSize="12" FontWeight="Bold" Foreground="#1D384D"/>
+                    <TextBox x:Name="usernameLogin" Width="150" Height="20">
+                        <TextBox.Effect>
+                            <DropShadowEffect Color="Black" BlurRadius="1" ShadowDepth="1" Opacity="0.1"/>
+                        </TextBox.Effect>
+                    </TextBox>
                 </StackPanel>
                 <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Label>Password :</Label>
-                    <PasswordBox x:Name="passLogin" Width="150" Height="25"/>
+                    <Label Content="Password :" FontFamily="Courier New" FontSize="12" FontWeight="Bold" Foreground="#1D384D"/>
+                    <PasswordBox x:Name="passLogin" Width="150" Height="20">
+                        <PasswordBox.Effect>
+                            <DropShadowEffect Color="Black" BlurRadius="1" ShadowDepth="1" Opacity="0.1"/>
+                        </PasswordBox.Effect>
+                    </PasswordBox>
                 </StackPanel>
             </Grid>
-            <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.ColumnSpan="2" Margin="0,0.4,0,0">
-                <Button Click="Button_Click_2">sign up</Button>
-                <Button Click="Button_Click_3">Login</Button>
-            </StackPanel>
-        </Grid>
-        <Grid x:Name="SignupForm" Grid.Row="1" Width="300" Height="300" Background="White" Visibility="Collapsed">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="7*"/>
-                <ColumnDefinition Width="53*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="2.5*"/>
-                <RowDefinition Height="2.5*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <StackPanel Grid.Row="0" Orientation="Horizontal" Grid.ColumnSpan="2" Margin="0,0,0,0.2" >
-                <TextBlock>
-                    Image
-                </TextBlock>
-            </StackPanel>
-            <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Column="1" Margin="0,12,0,12.2">
-                <Button Click="Button_Click_1">
-                    Close
+            <!-- Login Button Section -->
+            <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.ColumnSpan="2" Margin="112,0.4,0,0">
+                <Button Click="Button_Click_2" Width="75" Height="24" BorderThickness="0" Background="Transparent">
+                    <Button.Content>
+                        <Image Height="24" Source="/Source/login.png" Stretch="Fill" Width="75"/>
+                    </Button.Content>
                 </Button>
-            </StackPanel>
-            <StackPanel Grid.ColumnSpan="2" Margin="0,43,0,0.4" Grid.RowSpan="2">
-                <TextBlock>Image</TextBlock>
-            </StackPanel>
-            <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="0,106.8,0,42" Grid.RowSpan="3">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Label>Username :</Label>
-                    <TextBox x:Name="usernameSignUP" Width="150" Height="25"/>
-                </StackPanel>
-                <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Label>Password :</Label>
-                    <PasswordBox x:Name="passSignUp" Width="150" Height="25"/>
-                </StackPanel>
+                <Button Click="Button_Click_3" Width="75" Height="24" BorderThickness="0" Background="Transparent" Margin="6,0,0,0">
+                    <Button.Content>
+                        <Image Height="24" Source="/Source/cancel.png" Stretch="Fill" Width="75" Margin="0,0,0,0"/>
+                    </Button.Content>
+                </Button>
 
-                <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Label>Re-Password :</Label>
-                    <PasswordBox x:Name="repassSignUp" Width="150" Height="25"/>
+            </StackPanel>
+
+        </Grid>
+
+<!--    SignUP Section    -->
+        <Grid x:Name="SignupForm" Grid.Row="1" Width="300" Height="300" Background="White" Visibility="Visible">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="53*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2.5*"/>
+                <RowDefinition Height="2.5*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <!-- Header Section -->
+            <StackPanel Grid.Row="0" Orientation="Horizontal" Grid.ColumnSpan="2" Margin="0,0,0,15" >
+                <Image Height="28" Source="/Source/logo.png" Stretch="Fill" Width="120"/>
+            </StackPanel>
+            <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Column="1" Margin="0,0,5,20">
+                <Button Click="Button_Click_1" Width="18" Height="18" BorderThickness="0" Background="Transparent">
+                    <Button.Content>
+                        <Image Height="15" Source="/Source/closebt.png" Stretch="Fill" Width="16"/>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+            <!-- Background Image Section -->
+            <StackPanel Grid.ColumnSpan="2" Margin="0,32,0,0.4" Grid.RowSpan="2">
+                <Image Source="/Source/background.png" Height="130" Stretch="Fill"/>
+            </StackPanel>
+            <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="0,106.8,0,42" Grid.RowSpan="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <!-- Signup Detail Section -->
+                <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label Content="Username :" FontFamily="Courier New" FontSize="12" FontWeight="Bold" Foreground="#1D384D"/>
+                    <TextBox x:Name="usernameSignUP" Width="150" Height="20">
+                        <TextBox.Effect>
+                            <DropShadowEffect Color="Black" BlurRadius="1" ShadowDepth="1" Opacity="0.1"/>
+                        </TextBox.Effect>
+                    </TextBox>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label Content="Password :" FontFamily="Courier New" FontSize="12" FontWeight="Bold" Foreground="#1D384D"/>
+                    <PasswordBox x:Name="passSigUP" Width="150" Height="20">
+                        <PasswordBox.Effect>
+                            <DropShadowEffect Color="Black" BlurRadius="1" ShadowDepth="1" Opacity="0.1"/>
+                        </PasswordBox.Effect>
+                    </PasswordBox>
+                </StackPanel>
+                <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-20,0,0,0">
+                    <Label Content="Re-Password :" FontFamily="Courier New" FontSize="12" FontWeight="Bold" Foreground="#1D384D"/>
+                    <PasswordBox x:Name="repassSignUP" Width="150" Height="20">
+                        <PasswordBox.Effect>
+                            <DropShadowEffect Color="Black" BlurRadius="1" ShadowDepth="1" Opacity="0.1"/>
+                        </PasswordBox.Effect>
+                    </PasswordBox>
                 </StackPanel>
             </Grid>
-            <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.ColumnSpan="2" Margin="0,0.4,0,0">
-                <Button Click="Button_Click_4">sign up</Button>
+            <!-- Signup Button Section -->
+            <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Right" Margin="0,0.4,32,0">
+                <Button Click="Button_Click_4" Width="75" Height="24" BorderThickness="0" Background="Transparent">
+                    <Button.Content>
+                        <Image Height="24" Source="/Source/submitbt.png" Stretch="Fill" Width="75" />
+                    </Button.Content>
+                </Button>
             </StackPanel>
         </Grid>
         <Grid x:Name="Footer" Grid.Row="2" Background="White">
