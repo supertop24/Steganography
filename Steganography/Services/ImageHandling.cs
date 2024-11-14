@@ -16,8 +16,43 @@ namespace Steganography.Services
         FileDialog service = new FileDialog();
         public Bitmap EncodeText(Bitmap image, string text)
         {
-            text += '\0';
-            byte[] textBytes = System.Text.Encoding.UTF8.GetBytes(text);
+            string textencode=text;
+            textencode += '\0';
+            byte[] textBytes = System.Text.Encoding.UTF8.GetBytes(textencode);
+            int byteIndex = 0, bitIndex = 0;
+            for (int y = 0; y < image.Height; y++)
+            {
+                for (int x = 0; x < image.Width; x++)
+                {
+                    if (byteIndex >= textBytes.Length)
+                        return image;
+                    Color pixel = image.GetPixel(x, y);
+                    int[] rgb = { pixel.R, pixel.G, pixel.B };
+                    for (int color = 0; color < 3; color++)
+                    {
+                        if (byteIndex < textBytes.Length)
+                        {
+                            int bit = (textBytes[byteIndex] >> bitIndex) & 1;
+                            rgb[color] = (rgb[color] & ~1) | bit;
+                            bitIndex++;
+                            if (bitIndex == 8)
+                            {
+                                bitIndex = 0;
+                                byteIndex++;
+                            }
+                        }
+                    }
+                    image.SetPixel(x, y, Color.FromArgb(rgb[0], rgb[1], rgb[2]));
+                }
+            }
+            return image;
+        }
+        public Bitmap EncodeTextPass(Bitmap image, string text, string pass)
+        {
+            int countpass = pass.Length;
+            string textencode = "pass" + Convert.ToString(countpass) + text + pass;
+            textencode += '\0';
+            byte[] textBytes = System.Text.Encoding.UTF8.GetBytes(textencode);
             int byteIndex = 0, bitIndex = 0;
             for (int y = 0; y < image.Height; y++)
             {

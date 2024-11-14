@@ -67,7 +67,7 @@ namespace Steganography.Services
         }
         public string encryptMessage(string message)
         {
-            byte[] data = Convert.FromBase64String(message);
+            byte[] data = System.Text.Encoding.UTF8.GetBytes(message);
             RSA publicKey = RSA.Create();
             publicKey.FromXmlString(imagePublicKey);
             byte[] encryptedData = publicKey.Encrypt(data, RSAEncryptionPadding.Pkcs1);
@@ -79,7 +79,7 @@ namespace Steganography.Services
             RSA privateKey = RSA.Create();
             privateKey.FromXmlString(imagePrivateKey);
             byte[] decryptedData = privateKey.Decrypt(data, RSAEncryptionPadding.Pkcs1);
-            return Convert.ToBase64String(decryptedData);
+            return System.Text.Encoding.UTF8.GetString(decryptedData);
         }
     }
 }

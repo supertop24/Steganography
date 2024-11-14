@@ -30,6 +30,10 @@ namespace Steganography.Views.Pages
         {
             InitializeComponent();
             userCheck = user;
+            if(user.Name!=null)
+            {
+                profile.Content = userCheck.Name;
+            }
             _viewModel = new LoginVM(user);
             database = new Database();
             LoginForm.Visibility = Visibility.Collapsed;
@@ -76,7 +80,6 @@ namespace Steganography.Views.Pages
                 else
                 {
                     _viewModel.ClickEventDefinition(new Login(userCheck));
-                    profile.Content = userCheck.Name;
                     LoginForm.Visibility = Visibility.Collapsed;
                     MessageBox.Show("Welcome " + userCheck.Name + "!");
                     _viewModel.ClickEventDefinition(new Login(userCheck));
@@ -137,14 +140,14 @@ namespace Steganography.Views.Pages
 
         private void Button_Click_5(object sender, RoutedEventArgs e)//encryption
         {
-            string type = "e";//E for encryption
+            string type = "e";//E for encode
             _viewModel.ClickEventDefinition(new Main(userCheck, type));
         }
 
         private void Button_Click_6(object sender, RoutedEventArgs e)//Decryption
         {
 
-            string type = "d";//E for encryption
+            string type = "d";//d for decode
             _viewModel.ClickEventDefinition(new Main(userCheck, type));
         }
     }

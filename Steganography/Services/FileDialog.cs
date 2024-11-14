@@ -17,9 +17,10 @@ namespace Steganography.Services
             using (SaveFileDialog saveFileDialog = new SaveFileDialog())
             {
                 saveFileDialog.InitialDirectory = "c:\\";
-                saveFileDialog.Filter = "Image files (*.jpg;*.jpeg;*.png;*.bmp)|*.jpg;*.jpeg;*.png;*.bmp";
+                saveFileDialog.Filter = "Image files (*.png)|*.png";
                 saveFileDialog.Title = "Save Image File";
-
+                saveFileDialog.DefaultExt = "png";
+                saveFileDialog.FileName = "Test";
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     string saveFilePath = saveFileDialog.FileName;
@@ -49,6 +50,10 @@ namespace Steganography.Services
                     byte[] imageData = File.ReadAllBytes(filePath);
                     return imageData;
                 }
+                else
+                {
+                    MessageBox.Show("Open operation was canceled.");
+                }
             }
             return null;
         }
@@ -67,6 +72,10 @@ namespace Steganography.Services
                     byte[] imageData = File.ReadAllBytes(filePath);
                     return filePath;
                 }
+                else
+                {
+                    MessageBox.Show("Open operation was canceled.");
+                }
             }
             return null;
         }
@@ -78,10 +87,11 @@ namespace Steganography.Services
                 saveFileDialog.Filter = "Image files (*.png)|*.png";
                 saveFileDialog.Title = "Save Image File";
                 saveFileDialog.DefaultExt = "png";
-
+                saveFileDialog.FileName = "Test";
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     string saveFilePath = saveFileDialog.FileName;
+                    MessageBox.Show($"Image saved successfully at {saveFilePath}");
                     return saveFilePath;
                 }
                 else

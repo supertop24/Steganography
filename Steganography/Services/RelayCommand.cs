@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace LibrarySystem.Services
+namespace Steganography.Services
 {
     public class RelayCommand : ICommand
     {

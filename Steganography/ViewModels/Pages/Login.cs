@@ -25,7 +25,6 @@ namespace Steganography.ViewModels.Pages
         public LoginVM(User user)
         {
             
-
         }
     }
 }

@@ -9,6 +9,73 @@
       Title="Profile">
 
     <Grid>
-        <TextBlock>PROFILE</TextBlock>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="Header" Grid.Row="0" Background="White" >
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" >
+                <Button Click="Button_Click" VerticalAlignment="Center">
+                    logo
+                </Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right"  >
+                <Button Click="Button_Click_1">Logout</Button>
+                <Button x:Name="profile" Click="profile_Click"  VerticalAlignment="Center">
+                    profile
+                </Button>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Label>List of Image</Label>
+           <ListView Grid.Row="1" Name="List" ScrollViewer.VerticalScrollBarVisibility="Hidden"
+          ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Left" VerticalAlignment="Top"
+          ItemsSource="{Binding Selected}">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Width="100" Margin="5">
+                            <StackPanel>
+                                <!-- Bind the Image Source to the ImageSource property of your ImageItem -->
+                                <Image Width="80" Height="80" Source="{Binding ImageSource}" />
+                                <!-- Bind the Name and Date properties to TextBlocks -->
+                                <TextBlock Text="{Binding Name}" TextAlignment="Center"/>
+                                <TextBlock Text="{Binding Date, StringFormat='{}{0:MM/dd/yyyy}'}" TextAlignment="Center"/>
+                                <Button Command="{Binding DataContext.SaveItemCommand, RelativeSource={RelativeSource AncestorType=ListView}}" 
+                            CommandParameter="{Binding .}">Save</Button>
+                                <Button Command="{Binding DataContext.DecodeItemCommand, RelativeSource={RelativeSource AncestorType=ListView}}" 
+                            CommandParameter="{Binding}">Decode</Button>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+        <Grid x:Name="Footer" Grid.Row="2" Background="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <TextBlock>Contact Us</TextBlock>
+            </Grid>
+            <Grid Grid.Column="1">
+                <TextBlock>Terms Of Service</TextBlock>
+            </Grid>
+            <Grid Grid.Column="2">
+                <TextBlock>Privacy Policy</TextBlock>
+            </Grid>
+            <Grid Grid.Column="3">
+                <TextBlock>Git</TextBlock>
+            </Grid>
+        </Grid>
     </Grid>
 </Page>

@@ -16,7 +16,7 @@ namespace Steganography.Data
         Encryption service = new Encryption();
         public static void Init()
         {
-            using (var connection = new SQLiteConnection("Data Source=test1.db;Version=3;"))
+            using (var connection = new SQLiteConnection("Data Source=Steganography.db;Version=3;"))
             {
                 connection.Open();
 
@@ -30,7 +30,7 @@ namespace Steganography.Data
         }
         public void InsertUser(string user, string pass)
         {
-            using (var connection = new SQLiteConnection("Data Source=test1.db;Version=3;"))
+            using (var connection = new SQLiteConnection("Data Source=Steganography.db;Version=3;"))
             {
                 connection.Open();
                 // Insert a new user
@@ -41,9 +41,9 @@ namespace Steganography.Data
                 command.ExecuteNonQuery();
             }
         }
-        public static void InsertImage(string name, byte[] image, int uid)
+        public void InsertImage(string name, byte[] image, int uid)
         {
-            using (var connection = new SQLiteConnection("Data Source=test1.db;Version=3;"))
+            using (var connection = new SQLiteConnection("Data Source=Steganography.db;Version=3;"))
             {
                 connection.Open();
                 var command = new SQLiteCommand("INSERT INTO images (name, image,date,userid) VALUES (@name, @data,DATE('now'),@uid)", connection);
@@ -55,7 +55,7 @@ namespace Steganography.Data
         }
         public List<User> ReadUser(List<User> users)
         {
-            using (var connection = new SQLiteConnection("Data Source=test1.db;Version=3;"))
+            using (var connection = new SQLiteConnection("Data Source=Steganography.db;Version=3;"))
             {
                 connection.Open();
                 // Read users
@@ -101,7 +101,7 @@ namespace Steganography.Data
         }
         public List<Image> ReadImage(List<Image> images)
         {
-            using(var connection = new SQLiteConnection("Data Source=test1.db;Version=3"))
+            using(var connection = new SQLiteConnection("Data Source=Steganography.db;Version=3"))
             {
                 connection.Open();
                 //Read images
@@ -119,6 +119,16 @@ namespace Steganography.Data
                         images.Add(temp);
                     }
                 }
+            }
+            return images;
+        }
+        public List<Image>Selected(List<Image>images,int id)
+        {
+            List<Image> temp = new List<Image>();
+            ReadImage(temp);
+            if (temp != null)
+            {
+                images=temp.Where(a => a.UserID == id).ToList();
             }
             return images;
         }
