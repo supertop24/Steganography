@@ -9,6 +9,90 @@
       Title="Profile">
 
     <Grid>
-        <TextBlock>PROFILE</TextBlock>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <!--    Header Section    -->
+        <Grid x:Name="Header" Grid.Row="0" Background="White" >
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" >
+                <Button Click="Button_Click_7" BorderThickness="0" Background="Transparent">
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" Grid.ColumnSpan="2" Margin="0,0,0,0" >
+                        <Image Height="28" Source="/Resource/logo.png" Stretch="Fill" Width="120"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right"  >
+                <Button x:Name="profile" Click="Button_Click"  VerticalAlignment="Center" BorderThickness="0" Background="Transparent">
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" Grid.ColumnSpan="2" Margin="0,0,0,0" >
+                        <Image Height="20" Source="/Resource/profilebt.png" Stretch="Fill" Width="20"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1" Background="White">
+            <Label Content="List of Images " FontFamily="Courier New" FontSize="12" FontWeight="Bold" Foreground="#1D384D" Margin="30,10,0,0.0"/>
+           <ListView Grid.Row="1" Name="List" ScrollViewer.VerticalScrollBarVisibility="Hidden"
+          ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Left" VerticalAlignment="Top"
+          ItemsSource="{Binding Selected}">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Width="100" Margin="5">
+                            <StackPanel>
+                                <!-- Bind the Image Source to the ImageSource property of your ImageItem -->
+                                <Image Width="80" Height="80" Source="{Binding ImageSource}" />
+                                <!-- Bind the Name and Date properties to TextBlocks -->
+                                <TextBlock Text="{Binding Name}" TextAlignment="Center"/>
+                                <TextBlock Text="{Binding Date, StringFormat='{}{0:MM/dd/yyyy}'}" TextAlignment="Center"/>
+                                <Button Command="{Binding DataContext.SaveItemCommand, RelativeSource={RelativeSource AncestorType=ListView}}" 
+                            CommandParameter="{Binding .}">Save</Button>
+                                <Button Command="{Binding DataContext.DecodeItemCommand, RelativeSource={RelativeSource AncestorType=ListView}}" 
+                            CommandParameter="{Binding}">Decode</Button>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+        <!-- Footer Section -->
+        <Grid x:Name="Footer" Grid.Row="2" Background="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label Content="Contact us" FontFamily="Courier New" FontSize="10" FontWeight="Bold" Foreground="#1D384D"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="1">
+                <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label Content="Term of Service" FontFamily="Courier New" FontSize="10" FontWeight="Bold" Foreground="#1D384D"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="2">
+                <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label Content="Privacy Policy" FontFamily="Courier New" FontSize="10" FontWeight="Bold" Foreground="#1D384D"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="3">
+                <StackPanel Grid.ColumnSpan="2" Margin="-30,10,0,0.0" Grid.RowSpan="2">
+                    <Image Source="/Resource/git_icon.png" Height="15" Stretch="Fill" Width="15"/>
+                </StackPanel>
+                <StackPanel Grid.ColumnSpan="2" Margin="30,10,0,0.0" Grid.RowSpan="2">
+                    <Image Source="/Resource/X_icon.png" Height="15" Stretch="Fill" Width="15"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
     </Grid>
 </Page>

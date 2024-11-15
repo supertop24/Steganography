@@ -147,5 +147,10 @@ namespace Steganography.Views.Pages
             string type = "d";//E for encryption
             _viewModel.ClickEventDefinition(new Main(userCheck, type));
         }
+
+        private void Button_Click_7(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

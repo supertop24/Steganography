@@ -4,11 +4,200 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Steganography.Views.Pages"
+      xmlns:vm="clr-namespace:Steganography.ViewModels.Pages" 
+      d:DataContext="{d:DesignInstance Type=vm:LoginVM}"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" 
+      d:DesignWidth="800"
       Title="Main">
 
     <Grid>
-        <TextBlock>MAIN</TextBlock>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <!--    Header Section    -->
+        <Grid x:Name="Header" Grid.Row="0" Background="White" >
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" >
+                <Button Click="Button_Click_7" BorderThickness="0" Background="Transparent">
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" Grid.ColumnSpan="2" Margin="0,0,0,0" >
+                        <Image Height="28" Source="/Resource/logo.png" Stretch="Fill" Width="120"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right"  >
+                <Button x:Name="profile" Click="Button_Click"  VerticalAlignment="Center" BorderThickness="0" Background="Transparent">
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" Grid.ColumnSpan="2" Margin="0,0,0,0" >
+                        <Image Height="20" Source="/Resource/profilebt.png" Stretch="Fill" Width="20"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Grid>
+
+        <!--    Encode Section    -->
+        <Grid x:Name="Encode" Grid.Row="1" Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="8*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Background="White">
+                <Image x:Name="ImageDisplay" Source="../../Resource/Untitled.png"></Image>
+            </Grid>
+            <Grid Grid.Row="1" Background="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="5">
+                    <Label VerticalAlignment="Center">
+                        <Label Content="Search Image" FontFamily="Courier New" FontSize="12" FontWeight="Bold" Foreground="#1D384D"/>
+                    </Label>
+                    <Button Width="40" Height="20" Click="Button_Click_2">
+                        <Label Content="Search" FontFamily="Courier New" FontSize="12" FontWeight="Bold" Foreground="#1D384D"/>
+                    </Button>
+                    <TextBlock x:Name="PathLink" VerticalAlignment="Center">
+                        <Label Content="???" FontFamily="Courier New" FontSize="12" FontWeight="Bold" Foreground="#1D384D"/>
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Center" Margin="5">
+                    <Label Content="Message" FontFamily="Courier New" FontSize="12" FontWeight="Bold" Foreground="#1D384D"/>
+                    <TextBox x:Name="MessageImage" Width="400" Height="100"></TextBox>
+                </StackPanel>
+                <StackPanel Grid.Row="2" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Center" Margin="5">
+                    <Label VerticalAlignment="Center">
+                        <Label Content="Password" FontFamily="Courier New" FontSize="12" FontWeight="Bold" Foreground="#1D384D"/>
+                    </Label>
+                    <ToggleButton x:Name="TogglePass" Click="ToggleButton_Click" Width="10" Height="10" BorderThickness="2" Background="White"></ToggleButton>
+                    <PasswordBox x:Name="PassBar" Width="300" Visibility="Collapsed"></PasswordBox>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="2" Background="White">
+                <Button Click="Button_Click_3" Width="180" Height="30" BorderThickness="0" Background="Transparent">
+                    <Image Height="30" Source="/Resource/encryption_submitbt.png" Stretch="Fill" Width="180"/>
+                </Button>
+            </Grid>
+        </Grid>
+
+        <!--    Decode Section    -->
+        <Grid x:Name="Decode" Grid.Row="1" Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="10*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Background="White">
+                <Image x:Name="ImageDisplayD" Source="../../Resource/Untitled.png"></Image>
+            </Grid>
+            <Grid Grid.Row="1" Background="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
+                    <Label VerticalAlignment="Center">
+                        <Label Content="Search Image" FontFamily="Courier New" FontSize="12" FontWeight="Bold" Foreground="#1D384D"/>
+                    </Label>
+                    <Button Width="40" Height="20" Click="Button_Click_2">
+                        <Label Content="Search" FontFamily="Courier New" FontSize="12" FontWeight="Bold" Foreground="#1D384D"/>
+                    </Button>
+                    <TextBlock x:Name="PathLinkD" VerticalAlignment="Center">Select an image!</TextBlock>
+                </StackPanel>
+                <StackPanel x:Name="DecodePass" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Visibility="Collapsed">
+                    <Label VerticalAlignment="Center">
+                        <Label Content="Password :" FontFamily="Courier New" FontSize="12" FontWeight="Bold" Foreground="#1D384D"/>
+                    </Label>
+                    <PasswordBox x:Name="DecodePassbar" Width="300"></PasswordBox>
+                </StackPanel>
+                <Grid Grid.Row="2" Background="White">
+                    <Button Click="Button_Click_3" Width="180" Height="30" BorderThickness="0" Background="Transparent">
+                        <Image Height="30" Source="/Resource/decription_submitbt.png" Stretch="Fill" Width="180"/>
+                    </Button>
+                </Grid>
+            </Grid>
+        </Grid>
+
+        <!-- Encode result Section -->
+        <Grid x:Name="EncodeResult" Grid.Row="1" Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="6*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Background="White">
+                <Image x:Name="ImageDisplayE" Source="../../Resource/Untitled.png"></Image>
+            </Grid>
+            <Grid Grid.Row="1" Background="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center">
+                    <Label Content="Date :" FontFamily="Courier New" FontSize="12" FontWeight="Bold" Foreground="#1D384D"/>
+                    <TextBlock x:Name="ImageDate">
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" >
+                    <Label Content="Message" FontFamily="Courier New" FontSize="12" FontWeight="Bold" Foreground="#1D384D"/>
+                    <TextBlock x:Name="EncodeMessage">
+                    </TextBlock>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="2" Background="White">
+                <Button Width="130" Height="34" VerticalAlignment="center" Click="Button_Click_4" BorderThickness="0" Background="Transparent">
+                    <Image Height="30" Source="/Resource/savebt.png" Stretch="Fill" Width="120"/>
+                </Button>
+            </Grid>
+        </Grid>
+
+        <!-- Decode result Section -->
+        <Grid x:Name="DecodeResult" Grid.Row="1" Visibility="Visible">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="10*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Background="White">
+                <Image x:Name="ImageDisplayR" Source="../../Resource/Untitled.png"></Image>
+            </Grid>
+            <StackPanel Grid.Row="1" Background="White">
+                <Label Content="Message " FontFamily="Courier New" FontSize="12" FontWeight="Bold" Foreground="#1D384D" Margin="30,10,0,0.0"/>
+                <TextBlock x:Name="DecodeMessage"></TextBlock>
+            </StackPanel>
+        </Grid>
+        <!-- Footer Section -->
+        <Grid x:Name="Footer" Grid.Row="2" Background="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label Content="Contact us" FontFamily="Courier New" FontSize="10" FontWeight="Bold" Foreground="#1D384D"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="1">
+                <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label Content="Term of Service" FontFamily="Courier New" FontSize="10" FontWeight="Bold" Foreground="#1D384D"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="2">
+                <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label Content="Privacy Policy" FontFamily="Courier New" FontSize="10" FontWeight="Bold" Foreground="#1D384D"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="3">
+                <StackPanel Grid.ColumnSpan="2" Margin="-30,10,0,0.0" Grid.RowSpan="2">
+                    <Image Source="/Resource/git_icon.png" Height="15" Stretch="Fill" Width="15"/>
+                </StackPanel>
+                <StackPanel Grid.ColumnSpan="2" Margin="30,10,0,0.0" Grid.RowSpan="2">
+                    <Image Source="/Resource/X_icon.png" Height="15" Stretch="Fill" Width="15"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
     </Grid>
 </Page>
