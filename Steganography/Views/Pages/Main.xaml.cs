@@ -240,7 +240,12 @@ namespace Steganography.Views.Pages
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            image.Save(file.SaveImagePath());
+            string temp = null;
+            temp = file.SaveImagePath();
+            if( temp!=null)
+            {
+                image.Save(temp);
+            }
         }
         private void DecodeResultDisplay()
         {
