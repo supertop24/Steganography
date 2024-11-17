@@ -149,9 +149,68 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resource\X_icon.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Resource\Untitled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\decodebt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\closebt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\decription_submitbt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\decrypbt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\encryption_submitbt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\encrypbt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\git_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\login_signupbt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\main_back1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\main_back2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\profilebt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\save2bt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\send_emailbt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\submitbt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\savebt.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

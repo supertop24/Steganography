@@ -30,10 +30,6 @@ namespace Steganography.Views.Pages
         {
             InitializeComponent();
             userCheck = user;
-            if(user.Name!=null)
-            {
-                profile.Content = userCheck.Name;
-            }
             _viewModel = new LoginVM(user);
             database = new Database();
             LoginForm.Visibility = Visibility.Collapsed;

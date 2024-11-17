@@ -39,10 +39,6 @@ namespace Steganography.Views.Pages
         {
             user = userPass;
             InitializeComponent();
-            if (user.ID!=0)
-            {
-                profile.Content = user.Name;
-            }
             ImageDate.Text = DateTime.Now.ToString("MMMM dd, yyyy");
             if (type=="e")
             {
