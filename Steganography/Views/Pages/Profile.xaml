@@ -25,6 +25,9 @@
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right"  >
+                <Button Click="Button_Click_1" FontFamily="Courier New" FontSize="12" FontWeight="Bold" Foreground="#1D384D" Margin="30,0,30,0.0" VerticalAlignment="Center" BorderThickness="0" Background="Transparent">
+                    Logout
+                </Button>
                 <Button x:Name="profile" Click="Button_Click"  VerticalAlignment="Center" BorderThickness="0" Background="Transparent">
                     <StackPanel Grid.Row="0" Orientation="Horizontal" Grid.ColumnSpan="2" Margin="0,0,0,0" >
                         <Image Height="20" Source="/Resource/profilebt.png" Stretch="Fill" Width="20"/>
